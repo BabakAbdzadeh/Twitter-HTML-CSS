@@ -1,52 +1,54 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 body {
+  overflow-x: hidden;
+  font-family: roboto;
   --twitter-color: #50b7f5;
   --twitter-background: #e6ecf0;
-
-display: flex; /* Makes nav-bar width to be enough we need */
+  display: flex;
+  /* Makes nav-bar width to be enough we need */
   height: 100vh;
-  max-width: 1300px;
+  max-width: 90%;
   margin-left: auto;
   margin-right: auto;
   padding: 0 1px;
 }
 
-
-.sidebarOption{
-
-  display: flex; /* puts icon and h2 by eachother */
+/* ----------- sidebar ---------------------- */
+.sidebarOption {
+  display: flex;
+  /* puts icon and h2 by eachother */
   align-items: center;
   cursor: pointer;
 }
 
-.sidebarOption .material-icons, .fa-twitter{
+.sidebarOption .material-icons, .fa-twitter {
   padding: 20px;
 }
 
-.sidebarOption h2{
+.sidebarOption h2 {
   font-weight: 800;
   font-size: 20px;
   margin-right: 20px;
 }
 
-.sidebarOption:hover{
+.sidebarOption:hover {
   background-color: var(--twitter-background);
   border-radius: 30px;
   color: var(--twitter-color);
   transition: color 100ms ease-out;
 }
 
-
-.sidebarOption.active{
+.sidebarOption.active {
   color: var(--twitter-color);
 }
 
-.sidebar-tweet{
+.sidebar-tweet {
   width: 100%;
   background-color: var(--twitter-color);
   border: none;
@@ -57,30 +59,94 @@ display: flex; /* Makes nav-bar width to be enough we need */
   margin-top: 20px;
 }
 
-.sidebar{
+.sidebar {
   border-right: 1px solid var(--twitter-color);
   flex: 0.2;
-  min-width: 250px;
+
   margin-top: 20px;
   padding-left: 20px;
   padding-right: 20px;
 }
 
-.fa-twitter{
+.fa-twitter {
   color: var(--twitter-color);
   font-size: 30px;
+  transition: 0.5s;
 }
 
+/*--------- <hamburger> -------------- */
+.sidebar {
+  transform: translateX(0px);
+  transition: 0.5s;
+}
 
+.sidebar.active {
+  transform: translateX(-500px);
+  flex: 0.01;
+  min-width: auto;
+}
+
+.fa-twitter {
+  transform: translateX(0px);
+  transition: 0.5s;
+}
+
+.fa-twitter.active {
+
+  transform: translateX(500px);
+  font-size: 60px;
+}
+
+.sidebar-tweet {
+  transform: translateY(0px);
+  transition: 0.5s;
+}
+
+.sidebar-tweet.active {
+  transform: translate(500px, -400px);
+}
+
+.feed {
+  transition: 1s;
+}
+
+.feed.active {
+
+  flex: 5;
+}
+
+.widgets {
+  transition: 1s;
+  transform: translateX(0px);
+}
+
+.widgets.active {
+  transform: translateX(500px);
+
+  flex: 0.01;
+}
+
+.widgets-input {
+  transition: 1s;
+  transform: translateX(0px);
+}
+
+.widgets-input.active {
+  /* transform: translateX(-500px); */
+}
+
+/* ----------</hamburger>---------------- */
 /* --------------Feed  ---------------------*/
-.feed{
+.feed {
   flex: 0.5;
   border-right: 1px solid var(--twitter-background);
+  border-left: 1px solid var(--twitter-background);
   min-width: fit-content;
+
   overflow-y: scroll;
 }
 
-.feed-header{
+.feed-header {
   position: sticky;
   top: 0;
   background-color: white;
@@ -89,7 +155,9 @@ display: flex; /* Makes nav-bar width to be enough we need */
   padding: 15px 20px;
 }
 
-.feed_header h2{
+
+
+.feed_header h2 {
   font-size: 20px;
   font-weight: 800;
 }
@@ -99,14 +167,14 @@ display: flex; /* Makes nav-bar width to be enough we need */
   display: none;
 }
 
-.feed{
-  -ms-overflow-style:none;
-  scrollbar-width:none;
+.feed {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-/* finish hid scroll bar */
 
+/* finish hid scroll bar */
 /* ----------tweet box start ---------------- */
-.tweetBox-input img{
+.tweetBox-input img {
   border-radius: 50%;
   height: 40px;
 }
@@ -117,17 +185,17 @@ display: flex; /* Makes nav-bar width to be enough we need */
   padding-right: 10px;
 }
 
-.tweetBox form{
+.tweetBox form {
   display: flex;
   flex-direction: column;
 }
 
-.tweetBox-input{
+.tweetBox-input {
   display: flex;
   padding: 20px;
 }
 
-.tweetBox-input input{
+.tweetBox-input input {
   flex: 1;
   margin-left: 20px;
   font-size: 20px;
@@ -135,78 +203,81 @@ display: flex; /* Makes nav-bar width to be enough we need */
   outline: none;
 }
 
-.tweetBox-tweetButton{
-background-color: var(--twitter-color);
-border: none;
-color: white;
-font-weight: 900;
-border-radius: 30px;
-width: 80px;
-height: 40px;
-margin-right: 20px;
-margin-left: auto; /* How it moves it to rightside??*/
+.tweetBox-tweetButton {
+  background-color: var(--twitter-color);
+  border: none;
+  color: white;
+  font-weight: 900;
+  border-radius: 30px;
+  width: 80px;
+  height: 40px;
+  margin-right: 20px;
+  margin-left: auto;
+  /* How it moves it to rightside??*/
 }
 
-
 /* -------------- post styling ---------------------- */
-.post-avatar img{
-  border-radius: 50% ;
+.post-avatar img {
+  border-radius: 50%;
   height: 40px;
 }
 
-.post{
+.post {
   display: flex;
   align-items: flex-start;
   border-bottom: 1px solid var(--twitter-background);
 }
-.post-body img{
+
+.post-body img {
   width: 450px;
-  object-fit: contain; /* contain: increases or decreases the size of the image to fill the box whilst preserving its aspect-ratio.*/
+  object-fit: contain;
+  /* contain: increases or decreases the size of the image to fill the box whilst preserving its aspect-ratio.*/
   border-radius: 20px;
 }
 
-.post-footer{
+.post-footer {
   display: flex;
   justify-content: space-between;
-  margin-top:10px;
+  margin-top: 10px;
 }
 
-.post-badge{
+.post-badge {
   font-size: 14px !important;
   color: var(--twitter-color);
   margin-right: 5px;
 }
 
-.post-header-special{
+.post-header-special {
   font-weight: 600;
   font-size: 12px;
   color: grey;
 }
-.post-header-text h3{
+
+.post-header-text h3 {
   font-size: 15px;
   margin-bottom: 5px;
 }
-.post-header-description{
+
+.post-header-description {
   margin-bottom: 10px;
   font-size: 15px;
 }
 
-.post-body{
+.post-body {
   flex: 1;
   padding: 10px;
 }
-.post-avatar{
+
+.post-avatar {
   padding: 20px;
 }
 
-
 /* ------------- widgets ------------- */
-
-.widgets{
+.widgets {
   flex: 0.3;
 }
 
-.widgets-input{
+.widgets-input {
   display: flex;
   align-items: center;
   background-color: var(--twitter-background);
@@ -216,17 +287,17 @@ margin-left: auto; /* How it moves it to rightside??*/
   margin-left: 20px;
 }
 
-.widgets-input input{
+.widgets-input input {
   border: none;
   background-color: var(--twitter-background);
   outline: none;
 }
 
-.widgets-serach-icon{
+.widgets-serach-icon {
   color: gray;
 }
 
-.widgets-widget-container{
+.widgets-widget-container {
   margin-top: 15px;
   margin-left: 20px;
   padding: 20px;
@@ -234,7 +305,7 @@ margin-left: auto; /* How it moves it to rightside??*/
   border-radius: 20px;
 }
 
-.widgets-widget-container h2{
+.widgets-widget-container h2 {
   font-size: 18px;
   font-weight: 800;
 }
