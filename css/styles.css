@@ -7,19 +7,48 @@
 
 body {
   overflow-x: hidden;
-  font-family: roboto;
+  font-family: Prompt;
   --twitter-color: #50b7f5;
   --twitter-background: #e6ecf0;
-  display: flex;
+  /* display: flex; */
   /* Makes nav-bar width to be enough we need */
-  height: 100vh;
+  /* height: 100vh; */ /* Because of Sticky navbar*/
   max-width: 90%;
   margin-left: auto;
   margin-right: auto;
   padding: 0 1px;
+  align-items: center;
+
+background-color: #E8E0D661;
+
+}
+
+
+/* ---------------- Basic structure ---------- */
+
+body{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.sidebar,.widgets{
+  position: sticky;
+   top: 0;
+  width: 20%;
+}
+
+.feed{
+  background-color: #d9905824;
+  flex: auto;
+
+  width: 100%;
+  z-index: 100;
 }
 
 /* ----------- sidebar ---------------------- */
+
+
 .sidebarOption {
   display: flex;
   /* puts icon and h2 by eachother */
@@ -38,29 +67,36 @@ body {
 }
 
 .sidebarOption:hover {
-  background-color: var(--twitter-background);
+  background-color:#E8E0D699;
   border-radius: 30px;
-  color: var(--twitter-color);
+  color:#0067A5;
   transition: color 100ms ease-out;
 }
 
 .sidebarOption.active {
-  color: var(--twitter-color);
+  color: #0067A5;
 }
 
 .sidebar-tweet {
   width: 100%;
-  background-color: var(--twitter-color);
+  /*Medium Persian Blue*/
+  background-color: #0067A5;
+  /*Persian White*/
+  color: #E8E0D6;
   border: none;
-  color: white;
+
   font-weight: 900;
   border-radius: 30px;
   height: 50px;
   margin-top: 20px;
 }
+.sidebar-tweet:hover{
+  /*Persina Blue Proper*/
+  background-color: #1c39BB;
+}
 
 .sidebar {
-  border-right: 1px solid var(--twitter-color);
+  /* border-right: 1px solid #0067A5; */
   flex: 0.2;
 
   margin-top: 20px;
@@ -69,78 +105,20 @@ body {
 }
 
 .fa-twitter {
-  color: var(--twitter-color);
+  color: #0067A5;
   font-size: 30px;
   transition: 0.5s;
 }
 
-/*--------- <hamburger> -------------- */
-.sidebar {
-  transform: translateX(0px);
-  transition: 0.5s;
+.fa-twitter:hover {
+  color: #1c39BB;
 }
 
-.sidebar.active {
-  transform: translateX(-500px);
-  flex: 0.01;
-  min-width: auto;
-}
 
-.fa-twitter {
-  transform: translateX(0px);
-  transition: 0.5s;
-}
-
-.fa-twitter.active {
-
-  transform: translateX(500px);
-  font-size: 60px;
-}
-
-.sidebar-tweet {
-  transform: translateY(0px);
-  transition: 0.5s;
-}
-
-.sidebar-tweet.active {
-  transform: translate(500px, -400px);
-}
-
-.feed {
-  transition: 1s;
-}
-
-.feed.active {
-
-  flex: 5;
-}
-
-.widgets {
-  transition: 1s;
-  transform: translateX(0px);
-}
-
-.widgets.active {
-  transform: translateX(500px);
-
-  flex: 0.01;
-}
-
-.widgets-input {
-  transition: 1s;
-  transform: translateX(0px);
-}
-
-.widgets-input.active {
-  /* transform: translateX(-500px); */
-}
-
-/* ----------</hamburger>---------------- */
 /* --------------Feed  ---------------------*/
 .feed {
-  flex: 0.5;
-  border-right: 1px solid var(--twitter-background);
-  border-left: 1px solid var(--twitter-background);
+  border-right: 1px solid black;
+  border-left: 1px solid black;
   min-width: fit-content;
 
   overflow-y: scroll;
@@ -149,9 +127,9 @@ body {
 .feed-header {
   position: sticky;
   top: 0;
-  background-color: white;
+
   z-index: 100;
-  border: 1px solid var(--twitter-background);
+  border-bottom: 1px solid black;
   padding: 15px 20px;
 }
 
@@ -181,7 +159,7 @@ body {
 
 .tweetBox {
   padding-bottom: 10px;
-  border-bottom: 8px solid var(--twitter-background);
+  /* border-bottom: 2px solid black; */
   padding-right: 10px;
 }
 
@@ -204,9 +182,12 @@ body {
 }
 
 .tweetBox-tweetButton {
-  background-color: var(--twitter-color);
+  /* - Colouring - */
+  /*Medium Persian Blue*/
+  background-color: #0067A5;
+  /*Persian White*/
+  color: #E8E0D6;
   border: none;
-  color: white;
   font-weight: 900;
   border-radius: 30px;
   width: 80px;
@@ -214,6 +195,9 @@ body {
   margin-right: 20px;
   margin-left: auto;
   /* How it moves it to rightside??*/
+}
+.tweetBox-tweetButton:hover{
+  background-color: #1c39BB;
 }
 
 /* -------------- post styling ---------------------- */
@@ -225,7 +209,7 @@ body {
 .post {
   display: flex;
   align-items: flex-start;
-  border-bottom: 1px solid var(--twitter-background);
+  /* border-bottom: 1px solid black; */
 }
 
 .post-body img {
@@ -273,14 +257,16 @@ body {
 }
 
 /* ------------- widgets ------------- */
-.widgets {
-  flex: 0.3;
-}
-
 .widgets-input {
+  /* - Colouring - */
+  /*Medium Persian Blue*/
+  background-color: #0067A5;
+  /*Persian White*/
+  color: #E8E0D6;
+
   display: flex;
   align-items: center;
-  background-color: var(--twitter-background);
+
   padding: 10px;
   border-radius: 20px;
   margin-top: 20px;
@@ -289,12 +275,25 @@ body {
 
 .widgets-input input {
   border: none;
-  background-color: var(--twitter-background);
+  /*Medium Persian Blue*/
+  background-color: #0067A5;
+  /*Persian White*/
+  color: #E8E0D6;
   outline: none;
 }
 
+.widgets-input.active{
+  /*Persina Blue Proper*/
+  background-color: #1c39BB;
+}
+
+input::placeholder {
+  /*Persian White*/
+  color: #E8E0D6;
+}
+
 .widgets-serach-icon {
-  color: gray;
+  color: #E8E0D6;
 }
 
 .widgets-widget-container {
